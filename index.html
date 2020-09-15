@@ -22,7 +22,7 @@
     <div class="column menu">
       <ul>
         <li onmouseover="mensagem('d2b')" onmouseout="limpa()" > <a href="iniciante/b2d.html"  target="_blank" >Conversor</a> </li>
-        <li>Relógio</li>
+        <li onmouseover="mensagem('dh')" onmouseout="limpa()" > <a href="iniciante/relogio.html"  target="_blank" >Relógio</a> </li>
         <li>Cronometro</li>
         <li>Objeto</li>
       </ul>
@@ -34,24 +34,28 @@
     </div>
   </div>
 
-  <div class="footer" style="text-align: right">
+  <div class="footer">
     <p>&copyWilson Maldonado</p>
   </div>
 
   <script>
 
     function mensagem(p1) {
-      if (p1='d2b') { 
+     
+      if (p1 =='d2b') { 
         document.querySelector('p#centro').innerHTML = "Converte decimal em Binário, Octagonal e Hexadecimal"
-        document.querySelector('h1#inic').innerHTML = "Conversor"
+        document.querySelector('h1#inic').innerHTML = "Conversor toString()"
+ 
+      } else if (p1=='dh') { 
+        document.querySelector('p#centro').innerHTML = "Utilização da função setInterval()"
+        document.querySelector('h1#inic').innerHTML = "Data e Hora"
+ 
       }
+
     }
 
   function limpa(){
     document.querySelector('p#centro').innerHTML = "Desafios propostos no https://github.com/florinpop17/app-ideas GitHubRepository FlorinPop17 para desenvolvimento profissional DEV"
-
-
-
     document.querySelector('h1#inic').innerHTML = "Projetos Educativos JavaScript" 
   }
 

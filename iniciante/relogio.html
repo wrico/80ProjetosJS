@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="pt-br">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../_css/estilo.css">
+    <title>Data e Hora</title>
+</head>
+
+<body onload="startTime()">
+
+    <div class=" header">
+        <h1 style="text-align: center"> Data e Hora </h1>
+    </div>
+
+    <div class="clearfix">
+        <div class="column menu">
+            <p>
+                <li> <a href="../index.html">Voltar</a> </li>
+            </p>
+        </div>
+
+        <div class="column content">
+            <h2>Demonstração da funçao setInterval()</h2>
+
+            <div>
+                <div id="nDia" style="margin-bottom: 20px;"></div>
+
+            </div>
+
+            <div>
+                <div id="nHora" style="float: left"></div>
+                <div id="nDec" style="margin-bottom: 20px;" ></div>
+            </div>
+
+            <div>
+                <div id="nDia"></div>
+
+            </div>
+
+            <input type="button" value="Pausar" onclick="stop()">
+           
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copyWilson Maldonado</p>
+    </div>
+
+    <script>
+
+        var decs = 0;
+
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            var decs = Math.floor(new Date().getTime() % 1000 / 10);
+
+            // var ms = today.getUTCMilliseconds();
+            var dia = today.getDate();
+            var mes = today.getMonth() + 1;
+            var ano = today.getFullYear();
+
+            m = checkTime(m)
+            s = checkTime(s)
+            decs = checkTime(decs)
+            t = setTimeout('startTime()', 500)
+
+           document.getElementById('nHora').innerText = "Hora: "+ h+":"+m+":"+s+":"
+           document.getElementById('nDia').innerText = "Data: "+ dia+"/"+mes+"/"+ano
+
+            setInterval(function () {
+                decs = Math.floor(new Date().getTime() % 1000 / 10)
+                decs = checkTime(decs)
+                 document.getElementById('nDec').innerText = decs
+            }, 100)
+
+            function checkTime(i) {
+                if (i < 10) {
+                    i = "0" + i
+                }
+                return i;
+            }
+
+        }
+
+        function stop() {
+            alert('pausado!') 
+            }
+
+
+    </script>
+
+</body>
+
+</html>
