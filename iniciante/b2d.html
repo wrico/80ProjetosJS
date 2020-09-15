@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="pt-br">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../_css/estilo.css">
+    <title>Conversos Decimal Binário </title>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1 style="text-align: center">Conversor Decimal</h1>
+    </div>
+
+    <div class="clearfix">
+        <div class="column menu">
+            <p>
+                <li> <a href="../index.html">Voltar</a> </li>
+            </p>
+        </div>
+
+        <div class="column content">
+            <h2>Converte de decimal para binário, octadecimal e hexadecimal utilizando toString(n)</h2>
+            <div class="entrada">
+                <label for="dec">Entre com o valor decimal</label>
+                <input name="dec" id="dec" type="text" minlength="1" maxlength="8" size="8">
+                <input type="button" value="Converte" onclick="converte(dec.value)">
+            </div>
+            <div>
+                <div id="bin"></div>
+                <div id="octa"></div>
+                <div id="hexa"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer" style="text-align: right">
+        <p>&copyWilson Maldonado</p>
+    </div>
+
+    <script>
+
+        function converte(decimal) {
+             
+            var conv = Number(decimal)
+            document.querySelector("div#bin").innerHTML = `Binário : ${conv.toString(2)}`
+            document.querySelector("div#octa").innerHTML = `Octadecimal : ${conv.toString(8)}`
+            document.querySelector("div#hexa").innerHTML = "HexaDecimal : "+ conv.toString(16).toUpperCase()
+            }
+    </script>
+
+</body>
+
+</html>

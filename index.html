@@ -1,80 +1,63 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<style>
-* {
-  box-sizing: border-box;
-}
 
-.header, .footer {
-  background-color: grey;
-  color: white;
-  padding: 15px;
-}
+  <meta charset="pt-br">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-.column {
-  float: left;
-  padding: 15px;
-}
+  <title>Projetos Educativos JavaScript</title>
 
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
-}
+  <link rel="stylesheet" href="_css/estilo.css">
 
-.menu {
-  width: 25%;
-}
+  </head>
 
-.content {
-  width: 75%;
-}
-
-.menu ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.menu li {
-  padding: 8px;
-  margin-bottom: 8px;
-  background-color: #33b5e5;
-  color: #ffffff;
-}
-
-.menu li:hover {
-  background-color: #0099cc;
-}
-</style>
-</head>
 <body>
 
-<div class="header">
-  <h1>Projetos Educativos JavaScripr</h1>
-</div>
-
-<div class="clearfix">
-  <div class="column menu">
-    <ul>
-      <li>Conversor decimais</li>
-      <li>Relócio</li>
-      <li>Cronometro</li>
-      <li>Objeto</li>
-    </ul>
+  <div class="header">
+    <h1 style="text-align: center">Projetos Educativos JavaScript</h1>
   </div>
 
-  <div class="column content">
-    <h1>Propósito</h1>
-    <p>Desafios propostos no <a href="https://github.com/florinpop17/app-ideas
-      "> GitHubRepository </a> para desenvolvimento.</p>
-  </div>
-</div>
+  <div class="clearfix">
+    <div class="column menu">
+      <ul>
+        <li onmouseover="mensagem('d2b')" onmouseout="limpa()" > <a href="iniciante/b2d.html"  target="_blank" >Conversor</a> </li>
+        <li>Relógio</li>
+        <li>Cronometro</li>
+        <li>Objeto</li>
+      </ul>
+    </div>
 
-<div class="footer" style="text-align: right">
-  <p>Wilson Maldonadot</p>
-</div>
+    <div class="column content">
+      <h1 id="inic" >Propósito</h1>
+      <p id="centro">Desafios propostos no https://github.com/florinpop17/app-ideas GitHubRepository FlorinPop17 para desenvolvimento profissional DEV</p>
+    </div>
+  </div>
+
+  <div class="footer" style="text-align: right">
+    <p>&copyWilson Maldonado</p>
+  </div>
+
+  <script>
+
+    function mensagem(p1) {
+      if (p1='d2b') { 
+        document.querySelector('p#centro').innerHTML = "Converte decimal em Binário, Octagonal e Hexadecimal"
+        document.querySelector('h1#inic').innerHTML = "Conversor"
+      }
+    }
+
+  function limpa(){
+    document.querySelector('p#centro').innerHTML = "Desafios propostos no https://github.com/florinpop17/app-ideas GitHubRepository FlorinPop17 para desenvolvimento profissional DEV"
+
+
+
+    document.querySelector('h1#inic').innerHTML = "Projetos Educativos JavaScript" 
+  }
+
+
+  </script>
 
 </body>
+
 </html>
