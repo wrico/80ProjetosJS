@@ -21,9 +21,13 @@
   <div class="clearfix">
     <div class="column menu">
       <ul>
-        <li onmouseover="mensagem('d2b')" onmouseout="limpa()" > <a href="iniciante/b2d.html" target="_blank">Conversor</a> </li>
-        <li onmouseover="mensagem('dh')" onmouseout="limpa()"> <a href="iniciante/relogio.html" target="_blank">Relógio</a> </li>
-        <li>Cronometro</li>
+        <li onmouseover="mensagem('d2b')" onmouseout="limpa()"> <a href="iniciante/b2d.html"
+            target="_blank">Conversor</a> </li>
+        <li onmouseover="mensagem('dh')" onmouseout="limpa()"> <a href="iniciante/relogio.html"
+            target="_blank">Relógio</a> </li>
+        <li onmouseover="mensagem('crono')" onmouseout="limpa()"> <a href="iniciante/cronometro.html"
+            target="_blank">Cronômetro</a> </li>
+       
         <li>Objeto</li>
       </ul>
     </div>
@@ -47,22 +51,25 @@
         case 'd2b':
           document.querySelector('p#centro').innerHTML = "Converte decimal em Binário, Octagonal e Hexadecimal"
           document.querySelector('h1#inic').innerHTML = "Conversor toString()"
-          p1=""
           break
         case 'dh':
           document.querySelector('p#centro').innerHTML = "Utilização da função setInterval()"
           document.querySelector('h1#inic').innerHTML = "Data e Hora"
-          p1=""
           break
+        case 'crono':
+          document.querySelector('p#centro').innerHTML = "Interrupção em SetInterval()"
+          document.querySelector('h1#inic').innerHTML = "Cronômetro"
+          break
+
       }
     }
 
- 
+
     function limpa() {
       document.querySelector('p#centro').innerHTML = "Desafios propostos no https://github.com/florinpop17/app-ideas GitHubRepository FlorinPop17 para desenvolvimento profissional DEV"
       document.querySelector('h1#inic').innerHTML = "Projetos Educativos JavaScript"
     }
- 
+
   </script>
 
 </body>
