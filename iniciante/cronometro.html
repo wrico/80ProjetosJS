@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
+<!-- Programa adaptado do original em https://pt.stackoverflow.com/questions/279563/cronometro-em-js#:~:text=funcao_para_mostrar%3A%20tipo%20function%2C%20fun%C3%A7%C3%A3o%20javascript,est%C3%A1%20em%20estado%20de%20alerta
+ -->
 
 <head>
     <meta charset="pt-br">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../_css/estilo.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Orbitron" rel="stylesheet">
     <title>Cronômetro</title>
 </head>
 
@@ -17,27 +20,33 @@
     <div class="clearfix">
         <div class="column menu">
             <p>
-
                 <li> <a href="../index.html">Voltar</a> </li>
             </p>
         </div>
 
         <div class="column content">
+
             <h2>Cronometro com Interrupção em SetInterval()</h2>
 
             <div>
-                <div id="painel" style="margin-bottom: 20px;">
-                    <button class="btn" onclick="inicia()" style="margin-right: 20px;">Inicia</button>
-                    <button class="btn" onclick="pausa()" style="margin: 20px;">Pausa</button>
-                    <button class="btn" onclick="limpa()" style="margin: 20px;">Limpa</button>
-                    <button class="btn" onclick="volta()" style="margin: 20px;">Volta</button>
+
+                <div>
+                    <input type="button" class="boton" id="inicio" value=" &#9658;" onclick="inicio();">
+                    <input type="button" class="boton" id="parar" value=" &#8718;" onclick="parar();" disabled>
+                    <input type="button" class="boton" id="continuar" value=" &#8634;" onclick="inicio();" disabled>
+                    <input type="button" class="boton" id="reinicio" value=" &#8635;" onclick="reinicio();" disabled>
                 </div>
+
+                <div id="contador" style="float: left; position: absolute; margin-left: 80px;"></div>
+                <div class="reloj" id="Horas">00</div>
+                <div class="reloj" id="Minutos">:00</div>
+                <div class="reloj" id="Segundos">:00</div>
+                <div class="reloj" id="Centesimas">:00</div>
             </div>
 
-            <div id="tempo" style="float: left">
-                <p>Tempo</p>
-            </div>
+
         </div>
+
     </div>
 
     <div class="footer">
@@ -45,51 +54,69 @@
     </div>
 
     <script>
-
-        var decs = 0;
-
-        function startTime() {
-            var today = new Date();
-            var h = today.getHours();
-            var m = today.getMinutes();
-            var s = today.getSeconds();
-            var decs = Math.floor(new Date().getTime() % 1000 / 10);
-
-            // var ms = today.getUTCMilliseconds();
-            var dia = today.getDate();
-            var mes = today.getMonth() + 1;
-            var ano = today.getFullYear();
-
-            m = checkTime(m)
-            s = checkTime(s)
-            decs = checkTime(decs)
-            t = setTimeout('startTime()', 500)
-
-            document.getElementById('nHora').innerText = "Hora: " + h + ":" + m + ":" + s + ":"
-            document.getElementById('nDia').innerText = "Data: " + dia + "/" + mes + "/" + ano
-
-            setInterval(function () {
-                decs = Math.floor(new Date().getTime() % 1000 / 10)
-                decs = checkTime(decs)
-                document.getElementById('nDec').innerText = decs
-            }, 100)
-
-            function checkTime(i) {
-                if (i < 10) {
-                    i = "0" + i
-                }
-                return i;
+        var centesimas = 0;
+        var segundos = 0;
+        var minutos = 0;
+        var horas = 0;
+        function inicio() {
+            control = setInterval(cronometro, 10);
+            document.getElementById("inicio").disabled = true;
+            document.getElementById("parar").disabled = false;
+            document.getElementById("continuar").disabled = true;
+            document.getElementById("reinicio").disabled = false;
+        }
+        function parar() {
+            clearInterval(control);
+            document.getElementById("parar").disabled = true;
+            document.getElementById("continuar").disabled = false;
+        }
+        function reinicio() {
+            clearInterval(control);
+            centesimas = 0;
+            segundos = 0;
+            minutos = 0;
+            horas = 0;
+            Centesimas.innerHTML = ":00";
+            Segundos.innerHTML = ":00";
+            Minutos.innerHTML = ":00";
+            Horas.innerHTML = "00";
+            document.getElementById("inicio").disabled = false;
+            document.getElementById("parar").disabled = true;
+            document.getElementById("continuar").disabled = true;
+            document.getElementById("reinicio").disabled = true;
+        }
+        function cronometro() {
+            if (centesimas < 99) {
+                centesimas++;
+                if (centesimas < 10) { centesimas = "0" + centesimas }
+                Centesimas.innerHTML = ":" + centesimas;
             }
-
+            if (centesimas == 99) {
+                centesimas = -1;
+            }
+            if (centesimas == 0) {
+                segundos++;
+                if (segundos < 10) { segundos = "0" + segundos }
+                Segundos.innerHTML = ":" + segundos;
+            }
+            if (segundos == 59) {
+                segundos = -1;
+            }
+            if ((centesimas == 0) && (segundos == 0)) {
+                minutos++;
+                if (minutos < 10) { minutos = "0" + minutos }
+                Minutos.innerHTML = ":" + minutos;
+            }
+            if (minutos == 59) {
+                minutos = -1;
+            }
+            if ((centesimas == 0) && (segundos == 0) && (minutos == 0)) {
+                horas++;
+                if (horas < 10) { horas = "0" + horas }
+                Horas.innerHTML = horas;
+            }
         }
-
-        function stop() {
-            alert('pausado!')
-        }
-
-
     </script>
-
 </body>
 
 </html>
