@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="pt-br">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../_css/estilo.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Orbitron" rel="stylesheet">
+    <title>Calculadora</title>
+</head>
+
+<body>
+
+    <div class=" header">
+        <h1 style="text-align: center"> Calculadora </h1>
+    </div>
+
+    <div class="clearfix">
+        <div class="column menu">
+            <p>
+                <li> <a href="../index.html">Voltar</a> </li>
+            </p>
+        </div>
+
+        <div class="column content">
+
+            <h2>Calculadora - Operador como parâmetro</h2>
+
+            <div>
+
+                <div>
+
+                    <div id="entradas">
+                        <fieldset id="operadores" class="fieldset">
+                            <p class="p_center">Operadores</p>
+                            <input type="number" name="nN1" id="nn1">
+                            <input type="number" name="nN2" id="nn2">
+                        </fieldset>
+                    </div>
+
+                    <input type="button" class="boton" id="soma" value="+" onClick="calc(this)">
+                    <input type="button" class="boton" id="subtrai" value="-" onClick="calc(this)">
+                    <input type="button" class="boton" id="multiplica" value="*" onClick="calc(this)">
+                    <input type="button" class="boton" id="divide" value="/" onClick="calc(this)">
+                    <input type="button" class="boton" id="exponecia" value="**" onClick="calc(this)">
+
+                    <div id="resultado">
+                        <fieldset id="resultado" class="rescalc">
+                            <p class="p_center">Resultado</p>
+                            <input readonly type="button" id="nRes" name="nRes">
+                        </fieldset>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>&copyWilson Maldonado</p>
+    </div>
+
+    <script>
+        function calc(n) {
+            var operacao = n.value;
+            var n1 = parseFloat(document.getElementById("nn1").value);
+            var n2 = parseFloat(document.getElementById("nn2").value);
+            var calculo = eval(n1 + operacao + n2);
+            if (!isNaN(calculo)) {
+                document.getElementById('nRes').value = calculo
+            }
+        }
+
+        function limpa() {
+            document.getElementById('nn1').value = "";
+            document.getElementById('nn2').value = "";
+            document.querySelector('input#nRes').value = '0'
+        }
+    </script>
+
+</body>
+
+</html>

@@ -73,6 +73,25 @@
       float      : left;
     }
 
+    .fieldset {
+      width                   : 380px;
+      border                  : none;
+      background              : #FFAE00;
+      opacity                 : 90% ;
+      padding                 : 10px;
+    }
+
+    .p_center{
+      text-align: center;
+    }
+
+    .rescalc{
+      border                  : none;
+      width                   : 200px;
+      background              : #FFAE00;
+     
+    }
+
     .boton {
       margin-top              : 5%;
       margin-bottom           : 5%;
@@ -115,7 +134,7 @@
 
     .boton:hover {
       margin-top              : 5%;
-      margin-bottom: 5%;
+      margin-bottom           : 5%;
       display                 : inline-block;
       -webkit-box-sizing      : content-box;
       -moz-box-sizing         : content-box;
@@ -151,4 +170,8 @@
       transform               : none;
       -webkit-transform-origin: 50% 50% 0;
       transform-origin        : 50% 50% 0;
+    }
+    #nRes {
+      text-align              :center; 
+      width                   :180px;
     }
