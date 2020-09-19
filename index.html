@@ -29,7 +29,7 @@
             target="_blank">Cronômetro</a> </li>
         <li onmouseover="mensagem('calc')" onmouseout="limpa()"> <a href="iniciante/calculadora.html"
             target="_blank">Calculadora</a> </li>
-       
+
         <li>Objeto</li>
       </ul>
     </div>
@@ -47,28 +47,29 @@
 
   <script>
 
-    function mensagem(p1) {
 
-      switch (p1) {
-        case 'd2b':
-          document.querySelector('p#centro').innerHTML = "Converte decimal em Binário, Octagonal e Hexadecimal"
-          document.querySelector('h1#inic').innerHTML = "Conversor toString()"
-          break
-        case 'dh':
-          document.querySelector('p#centro').innerHTML = "Utilização da função setInterval()"
-          document.querySelector('h1#inic').innerHTML = "Data e Hora"
-          break
-        case 'crono':
-          document.querySelector('p#centro').innerHTML = "Interrupção em SetInterval()"
-          document.querySelector('h1#inic').innerHTML = "Cronômetro"
-          break
+    function mensagem(type) {
 
-        case 'calc':
-          document.querySelector('p#centro').innerHTML = "Recebe o operador como parametro"
-          document.querySelector('h1#inic').innerHTML = "Calculadora"
-          break
+      var msgType = type
+
+      var cases = {
+        'd2b': "Converte decimal em Binário, Octagonal e Hexadecimal",
+        'dh': "Data e Hora do Sistema",
+        'crono': "Interrupção em SetInterval()",
+        'calc': "Recebe o operador como parametro"
+      }
+
+      var desc = {
+        'd2b': "Conversor toString() ",
+        'dh': "Relógio",
+        'crono': "Cronômetro",
+        'calc': "Calculadora"
 
       }
+
+      document.querySelector('p#centro').innerHTML = cases[msgType]
+      document.querySelector('h1#inic').innerHTML = desc[msgType]
+
     }
 
     function limpa() {
