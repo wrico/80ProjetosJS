@@ -17,11 +17,14 @@
     <div class="clearfix">
         <div class="column menu">
             <p>
-                <li> <a href="../index.html">Voltar</a> </li>
+                
+               <li> <a href="javascript:close()">Fechar</a> </li>
+
+
             </p>
         </div>
 
-        <div class="column content">
+        <div class="column conteudo">
             <h2>Converte de decimal para binário, octadecimal e hexadecimal utilizando toString(n)</h2>
             <div class="entrada">
                 <label for="dec">Entre com o valor decimal</label>
@@ -43,12 +46,12 @@
     <script>
 
         function converte(decimal) {
-             
+
             var conv = Number(decimal)
             document.querySelector("div#bin").innerHTML = `Binário : ${conv.toString(2)}`
             document.querySelector("div#octa").innerHTML = `Octadecimal : ${conv.toString(8)}`
-            document.querySelector("div#hexa").innerHTML = "HexaDecimal : "+ conv.toString(16).toUpperCase()
-            }
+            document.querySelector("div#hexa").innerHTML = "HexaDecimal : " + conv.toString(16).toUpperCase()
+        }
     </script>
 
 </body>

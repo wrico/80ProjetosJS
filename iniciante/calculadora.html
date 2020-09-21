@@ -16,9 +16,10 @@
     </div>
 
     <div class="clearfix">
+
         <div class="column menu">
             <p>
-                <li> <a href="../index.html">Voltar</a> </li>
+                <li> <a href="javascript:close()">Fechar</a> </li>
             </p>
         </div>
 
@@ -26,36 +27,38 @@
 
             <h2>Calculadora - Operador como parâmetro</h2>
 
-            <div>
 
+
+            <div id="entradas">
                 <div>
+                    <fieldset id="operadores" class="fieldset" style="float: left;">
+                        <p class="p_center">Operadores</p>
+                        <input type="number" name="nN1" id="nn1">
+                        <input type="number" name="nN2" id="nn2">
+                    </fieldset>
+                </div>
 
-                    <div id="entradas">
-                        <fieldset id="operadores" class="fieldset">
-                            <p class="p_center">Operadores</p>
-                            <input type="number" name="nN1" id="nn1">
-                            <input type="number" name="nN2" id="nn2">
-                        </fieldset>
-                    </div>
+                <div id="resultado" style="float: left; margin-left: 20px;">
+                    <fieldset id="resultado" class="rescalc">
+                        <p class="p_center">Resultado</p>
+                        <input readonly type="button" id="nRes" name="nRes">
+                    </fieldset>
+                </div>
 
+                <div style="clear: both;">
                     <input type="button" class="boton" id="soma" value="+" onClick="calc(this)">
                     <input type="button" class="boton" id="subtrai" value="-" onClick="calc(this)">
                     <input type="button" class="boton" id="multiplica" value="*" onClick="calc(this)">
                     <input type="button" class="boton" id="divide" value="/" onClick="calc(this)">
                     <input type="button" class="boton" id="exponecia" value="**" onClick="calc(this)">
-
-                    <div id="resultado">
-                        <fieldset id="resultado" class="rescalc">
-                            <p class="p_center">Resultado</p>
-                            <input readonly type="button" id="nRes" name="nRes">
-                        </fieldset>
-                    </div>
-
                 </div>
-
+                 
             </div>
 
+
+
         </div>
+
 
     </div>
 
